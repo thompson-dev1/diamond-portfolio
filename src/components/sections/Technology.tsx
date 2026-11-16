@@ -68,74 +68,38 @@ const stacks = [
   {
     title: "Frontend",
     tools: [
-      {
-        name: "HTML, CSS & JavaScript",
-        use: "Page structure, styling, and browser interactions.",
-      },
-      {
-        name: "React & TypeScript",
-        use: "Typed, reusable components for interactive interfaces.",
-      },
-      {
-        name: "Framer Motion & GSAP",
-        use: "Transitions, slideshows, and scroll-based animations.",
-      },
+      "HTML, CSS & JavaScript",
+      "React & TypeScript",
+      "Framer Motion & GSAP",
     ],
   },
   {
     title: "Frameworks",
     tools: [
-      {
-        name: "Next.js",
-        use: "React routing, page rendering, and responsive image delivery.",
-      },
-      {
-        name: "Tailwind CSS & Bootstrap",
-        use: "Responsive layouts, utilities, and interface styling.",
-      },
+      "Next.js",
+      "Tailwind CSS & Bootstrap",
     ],
   },
   {
     title: "Backend",
     tools: [
-      {
-        name: "Python & Flask",
-        use: "Server-side routing, request handling, and web applications.",
-      },
+      "Python & Flask",
     ],
   },
   {
     title: "Databases",
     tools: [
-      {
-        name: "SQL & SQLite",
-        use: "Writing queries and working with embedded relational databases.",
-      },
-      {
-        name: "Supabase",
-        use: "PostgreSQL-backed data storage and APIs.",
-      },
-      {
-        name: "MongoDB",
-        use: "Document-oriented data storage.",
-      },
-      {
-        name: "Firebase",
-        use: "Cloud databases with real-time updates.",
-      },
+      "SQL & SQLite",
+      "Supabase",
+      "MongoDB",
+      "Firebase",
     ],
   },
   {
     title: "Productivity",
     tools: [
-      {
-        name: "Microsoft Excel",
-        use: "Spreadsheets, formulas, data organisation, and reporting.",
-      },
-      {
-        name: "Office 365",
-        use: "Document preparation, presentations, and team collaboration.",
-      },
+      "Microsoft Excel",
+      "Office 365",
     ],
   },
 ];
@@ -334,14 +298,13 @@ export function Technology() {
             {stacks.map((stack, index) => (
               <ScrollReveal key={stack.title} delay={Math.min(index, 2) * 0.06}>
                 <h4 className="text-base font-semibold text-luxe-white">{stack.title}</h4>
-                <dl className="mt-5 grid gap-5">
+                <ul className="mt-4 space-y-2.5 border-l border-luxe-gold/30 pl-3">
                   {stack.tools.map((tool) => (
-                    <div key={tool.name} className="border-l border-luxe-gold/35 pl-4">
-                      <dt className="text-sm font-semibold text-luxe-gold md:text-base">{tool.name}</dt>
-                      <dd className="mt-1.5 text-sm leading-relaxed text-luxe-muted">{tool.use}</dd>
-                    </div>
+                    <li key={tool} className="text-sm text-luxe-muted">
+                      {tool}
+                    </li>
                   ))}
-                </dl>
+                </ul>
               </ScrollReveal>
             ))}
           </div>

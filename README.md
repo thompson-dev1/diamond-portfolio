@@ -4,10 +4,11 @@ Personal portfolio and showcase for Salamatu Adamu — fashion & beauty model, I
 
 ## Tech Stack
 
-- **Framework:** [Next.js](https://nextjs.org/) 15 (App Router, Turbopack)
-- **Styling:** [Tailwind CSS](https://tailwindcss.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/) & [GSAP](https://gsap.com/)
-- **Language:** [TypeScript](https://www.typescriptlang.org/)
+- Next.js
+- Tailwind CSS
+- Framer Motion
+- GSAP
+- TypeScript
 
 ## Getting Started
 
