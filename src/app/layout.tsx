@@ -7,19 +7,20 @@ import { MotionProvider } from "@/components/providers/MotionProvider";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { site } from "@/lib/site";
+import { initialThemeScript, themeColors } from "@/lib/theme";
 import "./globals.css";
 
 export const viewport = {
-  themeColor: "#070707",
+  themeColor: themeColors.dark,
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(site.url),
   title: {
     default: site.title,
-    template: `%s · ${site.name}`,
+    template: `%s · ${site.brand}`,
   },
   description: site.description,
+  icons: { icon: { url: "/diamond-icon.png", type: "image/png", sizes: "128x128" } },
   keywords: [
     "fashion model",
     "beauty modeling",
@@ -33,8 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: site.title,
     description: site.description,
-    url: site.url,
-    siteName: site.name,
+    siteName: site.brand,
     locale: "en_US",
     type: "website",
   },
@@ -55,7 +55,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     "@type": "Person",
     name: site.name,
     description: site.description,
-    url: site.url,
+    brand: { "@type": "Brand", name: site.brand },
     jobTitle: "Fashion & Beauty Model",
     knowsAbout: ["Web Development", "IT Operations", "Information Technology Management"],
     address: {
@@ -73,6 +73,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: initialThemeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

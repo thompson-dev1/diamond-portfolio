@@ -62,7 +62,7 @@ export function Campaigns() {
     <section
       id="campaigns"
       ref={sectionRef}
-      className="group/campaigns scroll-mt-24 overflow-x-clip border-t border-white/[0.06] bg-luxe-bg py-16 sm:py-24 data-[pinned=true]:flex data-[pinned=true]:min-h-[100dvh] data-[pinned=true]:items-center data-[pinned=true]:pb-10 data-[pinned=true]:pt-20 lg:data-[pinned=true]:py-24"
+      className="group/campaigns scroll-mt-24 overflow-x-clip border-t border-luxe-edge/[0.06] bg-luxe-bg py-16 sm:py-24 data-[pinned=true]:flex data-[pinned=true]:min-h-[100dvh] data-[pinned=true]:items-center data-[pinned=true]:pb-10 data-[pinned=true]:pt-20 lg:data-[pinned=true]:py-24"
     >
       <div className="mx-auto w-full max-w-[1440px] px-5 sm:px-6 md:px-12">
         {/* Heading with stagger */}
@@ -110,7 +110,7 @@ export function Campaigns() {
             {campaigns.map((c, i) => (
               <article
                 key={c.id}
-                className="campaign-card group/card relative w-[min(81vw,28rem)] shrink-0 snap-start overflow-hidden rounded-sm border border-white/[0.08] bg-luxe-surface shadow-inset sm:w-[min(63vw,32rem)] lg:group-data-[pinned=true]/campaigns:w-[min(52vw,720px)]"
+                className="campaign-card group/card relative w-[min(81vw,28rem)] shrink-0 snap-start overflow-hidden rounded-sm border border-luxe-edge/[0.08] bg-luxe-surface shadow-inset sm:w-[min(63vw,32rem)] lg:group-data-[pinned=true]/campaigns:w-[min(52vw,720px)]"
               >
                 <div className="campaign-frame relative aspect-[16/10] w-full overflow-hidden md:aspect-[16/9]">
                   {/* Image with hover zoom */}
@@ -130,7 +130,7 @@ export function Campaigns() {
 
                   {/* Brand info overlay */}
                   <div className="absolute bottom-0 left-0 p-5 sm:p-8 md:p-10">
-                    <h3 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-tight text-luxe-white">
+                    <h3 className="font-display text-[clamp(1.75rem,3vw,2.75rem)] font-medium leading-tight text-luxe-ivory">
                       {c.brand}
                     </h3>
                   </div>

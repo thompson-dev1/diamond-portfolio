@@ -1,15 +1,14 @@
-const firstName = "Salamatu";
-const name = `${firstName} Amadu`;
+const name = "Salamatu Amadu";
+const brand = "Diamond";
 
 export const site = {
   name,
-  firstName,
-  title: `${name} | Modeling, Beauty & Technology`,
+  brand,
+  title: `${brand} | Modeling, Beauty & Technology`,
   description:
-    "Portfolio of Salamatu Amadu, a fashion and beauty model with a BSc Information Technology Management and a focus on web development and IT operations.",
-  degree: "BSc Information Technology Management",
-  url: "https://priscillakpornyuie.com",
-  ogImage: "/og.jpg",
+    "Diamond is Salamatu Amadu’s portfolio for fashion and beauty modeling, web development, and IT operations.",
+  degree: "BSc in Information Technology Management",
+  cv: "/cv/salamatu-amadu-cv.pdf",
   email: "Salamatuamadu04@gmail.com",
   phone: "+233 054 778 2514",
   location: "Accra, Ghana",

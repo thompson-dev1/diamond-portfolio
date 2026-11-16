@@ -63,7 +63,7 @@ export function VideoReel() {
     <section
       ref={sectionRef}
       id="reel"
-      className="relative flex min-h-[max(23rem,85svh)] items-center justify-center overflow-hidden border-t border-white/[0.06] bg-[#030303]"
+      className="theme-photo-overlay relative flex min-h-[max(23rem,85svh)] items-center justify-center overflow-hidden border-t border-white/[0.06] bg-[#030303]"
     >
       {/* Parallax background */}
       <m.div

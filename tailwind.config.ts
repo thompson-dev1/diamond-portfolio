@@ -10,12 +10,18 @@ const config: Config = {
     extend: {
       colors: {
         luxe: {
-          bg: "#070707",
-          elevated: "#0A0A0A",
-          surface: "#101010",
-          white: "#F4F3EF",
-          muted: "#8A8A88",
-          gold: "#C6A15B",
+          bg: "rgb(var(--luxe-bg) / <alpha-value>)",
+          elevated: "rgb(var(--luxe-bg-elevated) / <alpha-value>)",
+          surface: "rgb(var(--luxe-surface) / <alpha-value>)",
+          footer: "rgb(var(--luxe-footer) / <alpha-value>)",
+          white: "rgb(var(--luxe-white) / <alpha-value>)",
+          muted: "rgb(var(--luxe-muted) / <alpha-value>)",
+          gold: "rgb(var(--luxe-gold) / <alpha-value>)",
+          edge: "rgb(var(--luxe-edge) / <alpha-value>)",
+          "gold-hover": "rgb(var(--luxe-gold-hover) / <alpha-value>)",
+          "on-gold": "rgb(var(--luxe-on-gold) / <alpha-value>)",
+          error: "rgb(var(--luxe-error) / <alpha-value>)",
+          ivory: "#F4F3EF",
         },
       },
       fontFamily: {
@@ -36,8 +42,8 @@ const config: Config = {
         luxe: "cubic-bezier(0.22, 1, 0.36, 1)",
       },
       boxShadow: {
-        glow: "0 0 120px -30px rgba(198, 161, 91, 0.35)",
-        inset: "inset 0 1px 0 rgba(255,255,255,0.06)",
+        glow: "0 0 120px -30px rgb(var(--luxe-gold) / 0.35)",
+        inset: "inset 0 1px 0 rgb(var(--luxe-edge) / 0.06)",
       },
       backgroundImage: {
         "gold-fade":

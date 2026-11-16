@@ -92,7 +92,7 @@ export function Lightbox({ item, currentIndex, setCurrentIndex, onClose }: Light
           role="dialog"
           aria-modal="true"
           aria-label={item.alt}
-          className="fixed inset-0 z-[400] flex items-center justify-center bg-black/95 px-3 pb-3 pt-12 backdrop-blur-md sm:p-4"
+          className="theme-photo-overlay fixed inset-0 z-[400] flex items-center justify-center bg-black/95 px-3 pb-3 pt-12 backdrop-blur-md sm:p-4"
           variants={backdropVariant}
           initial="hidden"
           animate="visible"

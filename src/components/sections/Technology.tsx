@@ -138,7 +138,7 @@ function GraduationGallery() {
       >
         <div
           id="graduation-current-portrait"
-          className="relative aspect-[4/5] overflow-hidden rounded-sm border border-white/[0.08] bg-luxe-surface"
+          className="relative aspect-[4/5] overflow-hidden rounded-sm border border-luxe-edge/[0.08] bg-luxe-surface"
         >
           <ScrollImage onEntry>
             {portraits.map((photo, index) => (
@@ -174,7 +174,7 @@ function GraduationGallery() {
               aria-label={`Show ${photo.title.toLowerCase()}`}
               aria-pressed={index === activeIndex}
               aria-controls="graduation-current-portrait"
-              className="relative min-h-0 overflow-hidden rounded-sm border border-white/15 opacity-65 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-luxe-gold aria-pressed:border-luxe-gold aria-pressed:opacity-100"
+              className="relative min-h-0 overflow-hidden rounded-sm border border-luxe-edge/15 opacity-65 transition-opacity hover:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-luxe-gold aria-pressed:border-luxe-gold aria-pressed:opacity-100"
               onFocus={() => setPlaying(false)}
               onClick={() => {
                 setPlaying(false);
@@ -198,7 +198,7 @@ function GraduationGallery() {
         <button
           type="button"
           aria-controls="graduation-current-portrait"
-          className="mt-3 min-h-11 rounded-sm border border-white/15 px-3 text-xs text-luxe-white/85 transition-colors hover:border-luxe-gold hover:text-luxe-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-luxe-gold"
+          className="mt-3 min-h-11 rounded-sm border border-luxe-edge/15 px-3 text-xs text-luxe-white/85 transition-colors hover:border-luxe-gold hover:text-luxe-gold focus-visible:outline focus-visible:outline-2 focus-visible:outline-luxe-gold"
           onClick={() => setPlaying(!playing)}
         >
           {playing ? "Pause slideshow" : "Play slideshow"}
@@ -213,7 +213,7 @@ export function Technology() {
     <section
       id="technology"
       aria-labelledby="technology-heading"
-      className="scroll-mt-24 border-t border-white/[0.07] bg-luxe-bg px-5 py-16 sm:px-6 sm:py-24 md:px-10 lg:px-12 lg:py-32"
+      className="scroll-mt-24 border-t border-luxe-edge/[0.07] bg-luxe-bg px-5 py-16 sm:px-6 sm:py-24 md:px-10 lg:px-12 lg:py-32"
     >
       <div className="mx-auto max-w-[1440px]">
         <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
@@ -247,7 +247,7 @@ export function Technology() {
         <div className="mt-12 grid gap-5 md:mt-16 md:grid-cols-2 md:gap-8">
           {areas.map((area, index) => (
             <ScrollReveal key={area.title} delay={index * 0.08}>
-              <article className="h-full border border-white/[0.08] bg-gradient-to-b from-white/[0.04] to-transparent p-5 sm:p-7 lg:p-10">
+              <article className="h-full border border-luxe-edge/[0.08] bg-gradient-to-b from-luxe-edge/[0.04] to-transparent p-5 sm:p-7 lg:p-10">
                 <h3 className="font-display text-3xl text-luxe-white">{area.title}</h3>
                 <p className="mt-4 max-w-md text-sm leading-relaxed text-luxe-muted md:text-base">
                   {area.description}
@@ -260,7 +260,7 @@ export function Technology() {
           ))}
         </div>
 
-        <div className="mt-14 grid items-center gap-8 border-t border-white/[0.08] pt-10 lg:grid-cols-2 lg:gap-14">
+        <div className="mt-14 grid items-center gap-8 border-t border-luxe-edge/[0.08] pt-10 lg:grid-cols-2 lg:gap-14">
           <div>
             <ScrollReveal>
               <h3 className="font-display text-3xl text-luxe-white md:text-4xl">Professional Skills</h3>
@@ -275,7 +275,7 @@ export function Technology() {
             </dl>
           </div>
           <ScrollReveal>
-            <div className="relative aspect-[3/2] overflow-hidden rounded-sm border border-white/[0.08] bg-luxe-surface">
+            <div className="relative aspect-[3/2] overflow-hidden rounded-sm border border-luxe-edge/[0.08] bg-luxe-surface">
               <ScrollImage onEntry>
                 <Image
                   src={photos.technologyWorkspace}
@@ -290,7 +290,7 @@ export function Technology() {
           </ScrollReveal>
         </div>
 
-        <div className="mt-14 border-t border-white/[0.08] pt-10 md:mt-20">
+        <div className="mt-14 border-t border-luxe-edge/[0.08] pt-10 md:mt-20">
           <ScrollReveal>
             <h3 className="font-display text-3xl text-luxe-white md:text-4xl">Tech Stack</h3>
           </ScrollReveal>

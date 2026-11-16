@@ -59,7 +59,7 @@ export function BookingCTA() {
     <section
       id="contact"
       ref={sectionRef}
-      className="relative scroll-mt-24 overflow-hidden border-t border-white/[0.07] px-5 py-16 sm:px-6 sm:py-24 md:py-32"
+      className="relative scroll-mt-24 overflow-hidden border-t border-luxe-edge/[0.07] px-5 py-16 sm:px-6 sm:py-24 md:py-32"
     >
       {/* Animated radial glow */}
       <m.div
@@ -118,7 +118,7 @@ export function BookingCTA() {
                 autoComplete="name"
                 required
                 placeholder="Full name"
-                className="w-full min-w-0 rounded-[2px] border border-white/[0.08] bg-white/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-white/30 transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
+                className="w-full min-w-0 rounded-[2px] border border-luxe-edge/[0.08] bg-luxe-edge/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-luxe-muted transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
               />
             </div>
             <div className="flex flex-col gap-3">
@@ -134,7 +134,7 @@ export function BookingCTA() {
                 name="Organisation"
                 autoComplete="organization"
                 placeholder="Company, brand, or agency"
-                className="w-full min-w-0 rounded-[2px] border border-white/[0.08] bg-white/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-white/30 transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
+                className="w-full min-w-0 rounded-[2px] border border-luxe-edge/[0.08] bg-luxe-edge/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-luxe-muted transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
               />
             </div>
           </div>
@@ -153,7 +153,7 @@ export function BookingCTA() {
               autoComplete="email"
               required
               placeholder="your@email.com"
-              className="w-full min-w-0 rounded-[2px] border border-white/[0.08] bg-white/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-white/30 transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
+              className="w-full min-w-0 rounded-[2px] border border-luxe-edge/[0.08] bg-luxe-edge/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-luxe-muted transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
             />
           </div>
 
@@ -170,7 +170,7 @@ export function BookingCTA() {
                 name="Project Type"
                 defaultValue=""
                 required
-                className="w-full min-w-0 appearance-none rounded-[2px] border border-white/[0.08] bg-white/[0.02] py-3.5 pl-4 pr-10 font-sans text-base text-luxe-white transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
+                className="w-full min-w-0 appearance-none rounded-[2px] border border-luxe-edge/[0.08] bg-luxe-edge/[0.02] py-3.5 pl-4 pr-10 font-sans text-base text-luxe-white transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
               >
                 <option value="" disabled>Select an enquiry type</option>
                 <option value="Beauty Campaign">Beauty Campaign</option>
@@ -203,7 +203,7 @@ export function BookingCTA() {
               required
               placeholder="Tell me about the project or opportunity and your timeline."
               rows={5}
-              className="w-full min-w-0 resize-none rounded-[2px] border border-white/[0.08] bg-white/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-white/30 transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
+              className="w-full min-w-0 resize-none rounded-[2px] border border-luxe-edge/[0.08] bg-luxe-edge/[0.02] px-4 py-3.5 font-sans text-base text-luxe-white placeholder-luxe-muted transition-colors focus:border-luxe-gold/50 focus:outline-none focus:ring-1 focus:ring-luxe-gold/50"
             />
           </div>
 
@@ -211,7 +211,7 @@ export function BookingCTA() {
             <button
               type="submit"
               disabled={status === "submitting" || status === "success"}
-              className="w-full rounded-[2px] bg-[#c6a15b] px-10 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-[#0a0a0a] transition-colors hover:bg-[#d4b06a] disabled:opacity-50 disabled:cursor-not-allowed md:w-auto"
+              className="w-full rounded-[2px] bg-luxe-gold px-10 py-4 font-sans text-[11px] font-bold uppercase tracking-[0.3em] text-luxe-on-gold transition-colors hover:bg-luxe-gold-hover disabled:opacity-50 disabled:cursor-not-allowed md:w-auto"
             >
               {status === "submitting"
                 ? "Sending..."
@@ -222,7 +222,7 @@ export function BookingCTA() {
                     : "Open Email Draft"}
             </button>
             {status === "error" && (
-              <p className="font-sans text-xs text-red-400">
+              <p className="font-sans text-xs text-luxe-error">
                 Something went wrong. Please try again.
               </p>
             )}

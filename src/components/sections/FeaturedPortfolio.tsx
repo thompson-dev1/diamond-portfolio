@@ -156,7 +156,7 @@ function MasonryItem({
     >
       <div
         ref={cardRef}
-        className="relative block w-full overflow-hidden rounded-[2px] border border-white/[0.07] bg-luxe-surface text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] shadow-glow outline-none ring-offset-2 ring-offset-luxe-bg transition-shadow duration-700 md:shadow-none md:hover:shadow-glow focus-visible:ring-1 focus-visible:ring-luxe-gold"
+        className="relative block w-full overflow-hidden rounded-[2px] border border-luxe-edge/[0.07] bg-luxe-surface text-left shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] shadow-glow outline-none ring-offset-2 ring-offset-luxe-bg transition-shadow duration-700 md:shadow-none md:hover:shadow-glow focus-visible:ring-1 focus-visible:ring-luxe-gold"
       >
         {/* Gold border reveal on hover */}
         <span className="pointer-events-none absolute inset-0 z-10 opacity-100 transition-opacity duration-700 md:opacity-0 md:group-hover:opacity-100">
@@ -283,7 +283,7 @@ export function FeaturedPortfolio() {
     >
       {/* Ghost watermark text */}
       <m.p
-        className="pointer-events-none absolute left-1/2 top-24 -translate-x-1/2 select-none font-display text-[clamp(5rem,18vw,14rem)] font-medium uppercase leading-none tracking-tight text-white/[0.03] md:top-32"
+        className="pointer-events-none absolute left-1/2 top-24 -translate-x-1/2 select-none font-display text-[clamp(5rem,18vw,14rem)] font-medium uppercase leading-none tracking-tight text-luxe-edge/[0.03] md:top-32"
         aria-hidden
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -349,8 +349,8 @@ export function FeaturedPortfolio() {
                 aria-pressed={filter === c}
                 className={`min-h-11 rounded-sm border px-3 py-2 font-sans text-[10px] uppercase tracking-[0.15em] sm:px-4 lg:tracking-[0.25em] transition-all duration-500 ${
                   filter === c
-                    ? "border-luxe-gold/55 bg-white/[0.03] text-luxe-white shadow-glow"
-                    : "border-white/[0.1] text-luxe-white md:text-luxe-muted md:hover:border-white/25 md:hover:text-luxe-white"
+                    ? "border-luxe-gold/55 bg-luxe-edge/[0.03] text-luxe-white shadow-glow"
+                    : "border-luxe-edge/[0.1] text-luxe-white md:text-luxe-muted md:hover:border-luxe-edge/25 md:hover:text-luxe-white"
                 }`}
               >
                 {c}

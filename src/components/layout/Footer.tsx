@@ -3,6 +3,7 @@
 import { m, useInView } from "framer-motion";
 import Link from "next/link";
 import { useRef } from "react";
+import { DiamondMark } from "@/components/ui/DiamondMark";
 import { site } from "@/lib/site";
 
 export function Footer() {
@@ -12,7 +13,7 @@ export function Footer() {
   return (
     <footer
       ref={footerRef}
-      className="border-t border-white/[0.08] bg-[#050505] px-5 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24"
+      className="border-t border-luxe-edge/[0.08] bg-luxe-footer px-5 py-12 sm:px-6 sm:py-16 lg:px-12 lg:py-24"
     >
       <div className="mx-auto flex max-w-[1440px] flex-col gap-7 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
         <m.div
@@ -20,11 +21,12 @@ export function Footer() {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-display text-[1.65rem] tracking-[0.12em] text-luxe-white md:text-3xl">
-            {site.name}
+          <p className="flex items-center gap-3 font-display text-[1.65rem] uppercase tracking-[0.12em] text-luxe-white md:text-3xl">
+            <DiamondMark className="size-9" />
+            {site.brand}
           </p>
           <p className="mt-4 font-sans text-[10px] uppercase tracking-[0.42em] text-luxe-muted">
-            Modeling · Beauty · Technology
+            {site.name} · Modeling · Beauty · Technology
           </p>
           <m.div
             className="editorial-rule mt-10 max-w-[11rem]"
@@ -125,7 +127,7 @@ export function Footer() {
         animate={inView ? { opacity: 1 } : {}}
         transition={{ delay: 0.5, duration: 0.8 }}
       >
-        © {new Date().getFullYear()} {site.name}. All rights reserved.
+        © {new Date().getFullYear()} {site.brand}. All rights reserved.
       </m.p>
     </footer>
   );

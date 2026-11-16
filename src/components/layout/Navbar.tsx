@@ -7,16 +7,20 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { ThemeControl } from "@/components/layout/ThemeControl";
 import { site } from "@/lib/site";
 
 const links = [
   { href: "#about", label: "About" },
   { href: "#technology", label: "Technology" },
+  { href: "#projects", label: "Projects" },
   { href: "#work", label: "Modeling & Beauty" },
   { href: "#campaigns", label: "Campaigns" },
   { href: "#reel", label: "Reel" },
+  { href: "#cv", label: "CV" },
 ];
 const contactLink = { href: "#contact", label: "Contact" };
 
@@ -24,7 +28,7 @@ function NavLink({ href, label }: { href: string; label: string }) {
   return (
     <Link
       href={href}
-      className="group relative py-1 font-sans text-[10px] uppercase tracking-[0.38em] text-luxe-muted transition-colors duration-500 hover:text-luxe-white"
+      className="group relative py-1 font-sans text-[10px] uppercase tracking-[0.19em] xl:tracking-[0.27em] text-luxe-muted transition-colors duration-500 hover:text-luxe-white"
     >
       <span>{label}</span>
       <span className="absolute bottom-0 left-0 h-px w-full origin-left scale-x-0 bg-gradient-to-r from-luxe-gold to-luxe-gold/40 transition-transform duration-500 ease-luxe group-hover:scale-x-100" />
@@ -68,8 +72,8 @@ export function Navbar() {
   const backdrop = useTransform(scrollY, [0, 140], [0, 0.94]);
   const blurPx = useTransform(scrollY, [0, 120], [0, 14]);
   const border = useTransform(scrollY, [0, 90], [0, 0.18]);
-  const background = useMotionTemplate`rgba(7,7,7,${backdrop})`;
-  const borderColor = useMotionTemplate`rgba(198,161,91,${border})`;
+  const background = useMotionTemplate`rgb(var(--luxe-bg) / ${backdrop})`;
+  const borderColor = useMotionTemplate`rgb(var(--luxe-gold) / ${border})`;
   const backdropBlur = useMotionTemplate`blur(${blurPx}px)`;
 
   return (
@@ -86,21 +90,26 @@ export function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
       >
-        <nav className="mx-auto flex max-w-[1440px] items-center justify-between gap-4 px-5 py-2 sm:px-6 lg:px-10 lg:py-5 xl:px-12">
+        <nav className="mx-auto flex max-w-[1440px] items-center justify-between gap-3 px-4 py-1.5 sm:gap-4 sm:px-6 lg:px-8 xl:px-12">
           {/* Logo */}
           <Link
             href="/"
-            className="group relative font-display text-[1.35rem] tracking-[0.14em] text-luxe-gold md:text-[1.5rem]"
+            aria-label={`${site.brand} home`}
+            className="inline-flex min-h-11 shrink-0 items-center rounded-sm focus-visible:outline focus-visible:outline-offset-4 focus-visible:outline-luxe-gold"
           >
-            <span className="relative z-10">{site.firstName}</span>
-            <span className="text-luxe-muted transition-colors duration-500 group-hover:text-luxe-gold/80">
-              .
-            </span>
-            <span className="absolute -bottom-1 left-0 h-px w-0 bg-gradient-to-r from-luxe-gold/80 to-transparent transition-all duration-700 group-hover:w-full" />
+            <Image
+              src="/diamond-logo.webp"
+              alt=""
+              width={336}
+              height={224}
+              unoptimized
+              loading="eager"
+              className="h-auto w-16 sm:w-[4.5rem] lg:w-20"
+            />
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden items-center gap-6 lg:flex xl:gap-10">
+          <ul className="hidden items-center gap-4 lg:flex xl:gap-7">
             {links.map((l, i) => (
               <m.li
                 key={l.href}
@@ -117,52 +126,45 @@ export function Navbar() {
             ))}
           </ul>
 
-          {/* CTA button */}
-          <m.div
-            className="hidden lg:block"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.6 }}
-          >
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2 lg:gap-3">
+            <ThemeControl />
             <Link
               href={contactLink.href}
-              className="group relative inline-flex min-h-11 items-center overflow-hidden rounded-sm border border-white/[0.12] px-5 font-sans text-[9px] uppercase tracking-[0.32em] text-luxe-white transition-colors duration-500 hover:border-luxe-gold/35"
+              className="group relative hidden min-h-11 items-center overflow-hidden rounded-sm border border-luxe-edge/[0.12] px-4 font-sans text-[9px] uppercase tracking-[0.25em] text-luxe-white transition-colors duration-500 hover:border-luxe-gold/35 lg:inline-flex xl:px-5"
             >
               <span className="absolute inset-0 origin-left scale-x-0 bg-luxe-gold transition-transform duration-700 ease-luxe group-hover:scale-x-100" />
-              <span className="relative z-10 transition-colors duration-500 group-hover:text-[#0a0a0a]">
+              <span className="relative z-10 transition-colors duration-500 group-hover:text-luxe-on-gold">
                 {contactLink.label}
               </span>
             </Link>
-          </m.div>
-
-          {/* Mobile menu button */}
-          <button
-            type="button"
-            id="mobile-menu-toggle"
-            className="flex size-11 flex-col items-center justify-center gap-[5px] rounded-sm focus-visible:outline focus-visible:outline-luxe-gold lg:hidden"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-            aria-controls={menuOpen ? "mobile-menu" : undefined}
-          >
-            <m.span
-              className="block h-px w-6 bg-luxe-white"
-              animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <m.span
-              className="block h-px w-6 bg-luxe-white"
-              animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.2 }}
-            />
-            <m.span
-              className="block h-px w-6 bg-luxe-white"
-              animate={
-                menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }
-              }
-              transition={{ duration: 0.3 }}
-            />
-          </button>
+            <button
+              type="button"
+              id="mobile-menu-toggle"
+              className="flex size-11 flex-col items-center justify-center gap-[5px] rounded-sm focus-visible:outline focus-visible:outline-luxe-gold lg:hidden"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label="Toggle menu"
+              aria-expanded={menuOpen}
+              aria-controls={menuOpen ? "mobile-menu" : undefined}
+            >
+              <m.span
+                className="block h-px w-6 bg-luxe-white"
+                animate={menuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                transition={{ duration: 0.3 }}
+              />
+              <m.span
+                className="block h-px w-6 bg-luxe-white"
+                animate={menuOpen ? { opacity: 0 } : { opacity: 1 }}
+                transition={{ duration: 0.2 }}
+              />
+              <m.span
+                className="block h-px w-6 bg-luxe-white"
+                animate={
+                  menuOpen ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }
+                }
+                transition={{ duration: 0.3 }}
+              />
+            </button>
+          </div>
         </nav>
       </m.header>
 
@@ -171,7 +173,7 @@ export function Navbar() {
         {menuOpen && (
           <m.div
             id="mobile-menu"
-            className="fixed inset-0 z-40 overflow-y-auto overscroll-y-contain bg-[#070707]/98 backdrop-blur-lg lg:hidden"
+            className="fixed inset-0 z-40 overflow-y-auto overscroll-y-contain bg-luxe-bg/98 backdrop-blur-lg lg:hidden"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

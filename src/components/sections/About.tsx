@@ -17,7 +17,7 @@ export function About() {
     <section
       id="about"
       aria-labelledby="about-heading"
-      className="scroll-mt-24 border-t border-white/[0.07] bg-gradient-to-b from-luxe-bg via-luxe-surface/30 to-luxe-bg"
+      className="scroll-mt-24 border-t border-luxe-edge/[0.07] bg-gradient-to-b from-luxe-bg via-luxe-surface/30 to-luxe-bg"
     >
       <div className="mx-auto grid max-w-[1440px] lg:grid-cols-2">
         <div className="relative min-h-[min(65svh,145vw)] overflow-hidden lg:min-h-[100svh]">
@@ -47,7 +47,7 @@ export function About() {
 
           <ScrollReveal className="mt-10" delay={0.08}>
             <p className="max-w-xl text-[15px] leading-[1.9] text-luxe-muted md:text-base">
-              I’m {site.name}, a fashion and beauty model based in {site.location}.
+              I’m {site.name}, the fashion and beauty model behind {site.brand}, based in {site.location}.
               My work spans fashion editorials, commercial and lifestyle shoots,
               and studio beauty portraits. I enjoy collaborating with clothing,
               beauty, and lifestyle brands on images that bring their collections to life.
@@ -61,7 +61,7 @@ export function About() {
             </p>
           </ScrollReveal>
 
-          <ScrollReveal className="mt-10 border-t border-white/[0.1] pt-8" delay={0.16}>
+          <ScrollReveal className="mt-10 border-t border-luxe-edge/[0.1] pt-8" delay={0.16}>
             <h3 className="font-display text-3xl text-luxe-white">Model Details</h3>
             <dl className="mt-6 space-y-4">
               {modelDetails.map((detail) => (

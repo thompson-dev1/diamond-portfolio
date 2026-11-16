@@ -6,14 +6,41 @@
   --font-cormorant: "Cormorant Garamond", Georgia, serif;
   --font-manrope: "Manrope", system-ui, sans-serif;
   --font-playfair: "Playfair Display", Georgia, serif;
-  --luxe-bg: #070707;
-  --luxe-bg-elevated: #0a0a0a;
-  --luxe-surface: #101010;
-  --luxe-white: #f4f3ef;
-  --luxe-muted: #8a8a88;
-  --luxe-gold: #c6a15b;
-  --luxe-gold-dim: rgba(198, 161, 91, 0.35);
-  --luxe-edge: rgba(255, 255, 255, 0.06);
+  color-scheme: dark;
+  --luxe-bg: 7 7 7;
+  --luxe-bg-elevated: 10 10 10;
+  --luxe-surface: 16 16 16;
+  --luxe-footer: 5 5 5;
+  --luxe-white: 244 243 239;
+  --luxe-muted: 138 138 136;
+  --luxe-gold: 198 161 91;
+  --luxe-edge: 255 255 255;
+  --luxe-gold-hover: 212 176 106;
+  --luxe-on-gold: 10 10 10;
+  --luxe-error: 248 113 113;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --luxe-bg: 245 239 229;
+  --luxe-bg-elevated: 255 251 244;
+  --luxe-surface: 237 227 212;
+  --luxe-footer: 233 223 207;
+  --luxe-white: 43 33 27;
+  --luxe-muted: 101 87 74;
+  --luxe-gold: 130 89 33;
+  --luxe-edge: 55 37 23;
+  --luxe-gold-hover: 112 73 25;
+  --luxe-on-gold: 255 251 244;
+  --luxe-error: 157 39 40;
+}
+
+.theme-photo-overlay {
+  color-scheme: dark;
+  --luxe-bg: 7 7 7;
+  --luxe-gold: 198 161 91;
+  --luxe-white: 244 243 239;
+  --luxe-muted: 187 181 171;
 }
 
 html {
@@ -34,7 +61,26 @@ html {
 }
 
 body {
-  @apply bg-[#070707] text-luxe-white antialiased;
+  @apply bg-luxe-bg text-luxe-white antialiased;
+}
+
+[data-theme="light"] .hero-night-shade {
+  display: none;
+}
+
+[data-theme="light"] .hero-day-shade {
+  display: block;
+  background: linear-gradient(
+    180deg,
+    rgb(var(--luxe-bg) / 0.92) 0%,
+    rgb(var(--luxe-bg) / 0.18) 26%,
+    rgb(var(--luxe-bg) / 0.79) 53%,
+    rgb(var(--luxe-bg)) 97%
+  );
+}
+
+[data-theme="light"] .hero-wordmark {
+  background-image: linear-gradient(145deg, #2b211b 20%, #76501c);
 }
 
 @media (max-width: 767px) and (orientation: portrait) {
@@ -59,7 +105,7 @@ body {
     padding-bottom: 1.5rem;
   }
 
-  .hero-content h1 {
+  .hero-wordmark {
     font-size: clamp(2.5rem, 12svh, 4.25rem);
   }
 
@@ -67,7 +113,6 @@ body {
     margin-bottom: 0.75rem;
   }
 
-  .hero-content .hero-subtitle,
   .hero-content .hero-links {
     margin-top: 0.875rem;
   }
@@ -129,7 +174,7 @@ body::after {
 
 ::selection {
   background: rgba(198, 161, 91, 0.38);
-  color: var(--luxe-white);
+  color: rgb(var(--luxe-white));
 }
 
 @layer utilities {
