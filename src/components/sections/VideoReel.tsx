@@ -50,7 +50,7 @@ export function VideoReel() {
 
     const interval = window.setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % REEL_FRAMES.length);
-    }, 1800);
+    }, 1400);
     return () => window.clearInterval(interval);
   }, [playing, reelInView]);
 
@@ -77,7 +77,7 @@ export function VideoReel() {
             initial={{ opacity: 0.5, scale: 1.05 }}
             animate={{ opacity: 0.88, scale: 1 }}
             exit={{ opacity: 0.5, scale: 0.98 }}
-            transition={{ duration: 0.8, ease: "easeInOut" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
             className="absolute inset-0 h-full w-full"
           >
             <Image

@@ -153,7 +153,7 @@ function GraduationGallery() {
 
     const timer = window.setInterval(() => {
       setActiveIndex((index) => (index + 1) % portraits.length);
-    }, 4500);
+    }, 2500);
 
     return () => window.clearInterval(timer);
   }, [inView, reduceMotion, playing, hovering]);
@@ -187,7 +187,7 @@ function GraduationGallery() {
                   opacity: index === activeIndex ? 1 : 0,
                   scale: index === activeIndex || reduceMotion ? 1 : 1.04,
                 }}
-                transition={{ duration: reduceMotion ? 0 : 0.6, ease: "easeInOut" }}
+                transition={{ duration: reduceMotion ? 0 : 0.4, ease: "easeInOut" }}
               >
                 <Image
                   src={photo.src}

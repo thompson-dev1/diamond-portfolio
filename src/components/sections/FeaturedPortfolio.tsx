@@ -78,7 +78,7 @@ function MasonryItem({
   useEffect(() => {
     if (!autoplay || !visible || imageCount <= 1) return;
 
-    const timer = window.setTimeout(handleNext, 4000 + (index % 3) * 450);
+    const timer = window.setTimeout(handleNext, 2400 + (index % 3) * 200);
     return () => window.clearTimeout(timer);
   }, [autoplay, visible, imageCount, index, handleNext, currentIndex]);
 
@@ -185,7 +185,7 @@ function MasonryItem({
                 aria-hidden={i !== currentIndex}
                 initial={false}
                 animate={{ opacity: i === currentIndex ? 1 : 0 }}
-                transition={{ duration: 0.45 }}
+                transition={{ duration: 0.35 }}
                 className="absolute inset-0 h-full w-full"
               >
                 <Image
