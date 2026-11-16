@@ -1,0 +1,18 @@
+export const photos = {
+  blackDressStanding: "/images/salamatu/black-dress-standing.jpg",
+  blackDressSeated: "/images/salamatu/black-dress-seated.jpg",
+  blackDressPortrait: "/images/salamatu/black-dress-portrait.jpg",
+  goldAccentsPortrait: "/images/salamatu/gold-accents-portrait.png",
+  drivewayPortrait: "/images/salamatu/driveway-portrait.png",
+  goldenHourDriveway: "/images/salamatu/golden-hour-driveway.png",
+  glassDoorPortrait: "/images/salamatu/glass-door-portrait.png",
+  gardenDressDetail: "/images/salamatu/garden-dress-detail.png",
+  redDressStudio: "/images/salamatu/red-dress-studio.png",
+  warmInteriorPortrait: "/images/salamatu/warm-interior-portrait.png",
+  ivoryOneShoulder: "/images/salamatu/ivory-one-shoulder.png",
+  yellowGownHallway: "/images/salamatu/yellow-gown-hallway.png",
+  graduationPortrait: "/images/salamatu/graduation-portrait.jpg",
+  technologyWorkspace: "/images/salamatu/technology-workspace.jpg",
+  whiteSuitStanding: "/images/salamatu/white-suit-standing.jpg",
+  whiteSuitSeated: "/images/salamatu/white-suit-seated.jpg",
+};

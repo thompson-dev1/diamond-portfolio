@@ -1,0 +1,104 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --luxe-bg: #070707;
+  --luxe-bg-elevated: #0a0a0a;
+  --luxe-surface: #101010;
+  --luxe-white: #f4f3ef;
+  --luxe-muted: #8a8a88;
+  --luxe-gold: #c6a15b;
+  --luxe-gold-dim: rgba(198, 161, 91, 0.35);
+  --luxe-edge: rgba(255, 255, 255, 0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  @apply bg-[#070707] text-luxe-white antialiased;
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  main .hero-content {
+    padding-top: 4.75rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2.5rem, 12svh, 4.25rem);
+  }
+
+  .hero-content .hero-location {
+    margin-bottom: 0.75rem;
+  }
+
+  .hero-content .hero-subtitle,
+  .hero-content .hero-links {
+    margin-top: 0.875rem;
+  }
+
+  .hero-content .hero-tagline {
+    margin-top: 0.5rem;
+  }
+
+  main .hero-scroll-hint {
+    display: none;
+  }
+}
+
+/* Cinematic film grain — above background layers, below UI (see layout z-index wrapper) */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.065;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: rgba(198, 161, 91, 0.38);
+  color: var(--luxe-white);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .editorial-rule {
+    @apply h-px w-full max-w-[min(100%,12rem)] bg-gradient-to-r from-luxe-gold/70 via-luxe-gold/25 to-transparent;
+  }
+
+  .gold-ring-soft {
+    box-shadow:
+      0 0 0 1px rgba(198, 161, 91, 0.14),
+      0 0 60px -12px rgba(198, 161, 91, 0.22);
+  }
+
+  .text-gradient-gold {
+    @apply bg-gradient-to-br from-[#e8d5b0] via-luxe-gold to-[#8a703f] bg-clip-text text-transparent;
+  }
+
+  .mask-image-fade-b {
+    mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+  }
+}
