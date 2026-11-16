@@ -1,12 +1,12 @@
 const firstName = "Salamatu";
-const name = `${firstName} Adamu`;
+const name = `${firstName} Amadu`;
 
 export const site = {
   name,
   firstName,
   title: `${name} | Modeling, Beauty & Technology`,
   description:
-    "Portfolio of Salamatu Adamu, a fashion and beauty model with a BSc Information Technology Management and a focus on web development and IT operations.",
+    "Portfolio of Salamatu Amadu, a fashion and beauty model with a BSc Information Technology Management and a focus on web development and IT operations.",
   degree: "BSc Information Technology Management",
   url: "https://priscillakpornyuie.com",
   ogImage: "/og.jpg",

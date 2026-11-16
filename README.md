@@ -1,6 +1,6 @@
-# Diamond Portfolio — Salamatu Adamu
+# Diamond Portfolio — Salamatu Amadu
 
-Personal portfolio and showcase for Salamatu Adamu — fashion & beauty model, IT professional (BSc Information Technology Management), and web developer.
+Personal portfolio and showcase for Salamatu Amadu — fashion & beauty model, IT professional (BSc Information Technology Management), and web developer.
 
 ## Tech Stack
 
@@ -34,7 +34,7 @@ npm run build
 
 ## Socials & Contact
 
-- **Model & Developer:** Salamatu Adamu
+- **Model & Developer:** Salamatu Amadu
 - **Instagram:** [@salma851509](https://instagram.com/salma851509)
 - **TikTok:** [@cute_sala1](https://www.tiktok.com/@cute_sala1)
 - **Snapchat:** [@Pretty_sala12](https://snapchat.com/add/Pretty_sala12)
