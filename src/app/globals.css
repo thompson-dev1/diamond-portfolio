@@ -34,6 +34,22 @@ body {
   @apply bg-[#070707] text-luxe-white antialiased;
 }
 
+@media (max-width: 767px) and (orientation: portrait) {
+  .hero-section {
+    min-height: 100vh;
+    min-height: 100lvh;
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    @media (display-mode: browser) {
+      .hero-section {
+        /* Keep the next section out of Safari's translucent toolbar area. */
+        min-height: max(100lvh, calc(100svh + 7rem));
+      }
+    }
+  }
+}
+
 @media (max-height: 500px) and (orientation: landscape) {
   main .hero-content {
     padding-top: 4.75rem;

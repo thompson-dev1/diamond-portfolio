@@ -41,7 +41,7 @@ export function Hero() {
   const initialReveal = reduceMotion ? false : "hidden";
 
   return (
-    <section className="relative overflow-hidden bg-luxe-bg">
+    <section className="hero-section relative overflow-hidden bg-luxe-bg">
       <div className="absolute inset-0">
         <ScrollImage>
           <Image
@@ -186,16 +186,16 @@ export function Hero() {
             Technology
           </Link>
         </m.div>
-      </div>
 
-      <div
-        className="hero-scroll-hint pointer-events-none absolute bottom-5 left-1/2 z-[11] flex -translate-x-1/2 flex-col items-center gap-2 md:bottom-8"
-        aria-hidden="true"
-      >
-        <span className="font-sans text-[9px] uppercase tracking-[0.42em] text-luxe-muted">
-          Scroll
-        </span>
-        <div className="h-8 w-px bg-gradient-to-b from-luxe-gold/65 to-transparent motion-safe:animate-scroll-hint md:h-12" />
+        <div
+          className="hero-scroll-hint pointer-events-none absolute bottom-5 left-1/2 z-[11] flex -translate-x-1/2 flex-col items-center gap-2 md:bottom-8"
+          aria-hidden="true"
+        >
+          <span className="font-sans text-[9px] uppercase tracking-[0.42em] text-luxe-muted">
+            Scroll
+          </span>
+          <div className="h-8 w-px bg-gradient-to-b from-luxe-gold/65 to-transparent motion-safe:animate-scroll-hint md:h-12" />
+        </div>
       </div>
     </section>
   );
