@@ -6,8 +6,8 @@ export const site = {
   firstName,
   title: `${name} | Modeling, Beauty & Technology`,
   description:
-    "Portfolio of Salamatu Adamu, a fashion and beauty model with a BSc in Information Technology Management and a focus on web development and IT operations.",
-  degree: "BSc in Information Technology Management",
+    "Portfolio of Salamatu Adamu, a fashion and beauty model with a BSc Information Technology Management and a focus on web development and IT operations.",
+  degree: "BSc Information Technology Management",
   url: "https://priscillakpornyuie.com",
   ogImage: "/og.jpg",
   email: "Salamatuamadu04@gmail.com",

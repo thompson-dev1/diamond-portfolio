@@ -16,7 +16,7 @@ export function About() {
   return (
     <section
       id="about"
-      aria-labelledby="biography-heading"
+      aria-labelledby="about-heading"
       className="scroll-mt-24 border-t border-white/[0.07] bg-gradient-to-b from-luxe-bg via-luxe-surface/30 to-luxe-bg"
     >
       <div className="mx-auto grid max-w-[1440px] lg:grid-cols-2">
@@ -38,10 +38,10 @@ export function About() {
         <div className="flex flex-col justify-center px-5 py-14 sm:px-6 sm:py-20 md:px-10 lg:py-28 lg:pl-20 lg:pr-16">
           <ScrollReveal>
             <h2
-              id="biography-heading"
+              id="about-heading"
               className="font-display text-[clamp(2.85rem,5.5vw,4.75rem)] font-normal leading-[1.06] tracking-tight text-luxe-white"
             >
-              Biography
+              About
             </h2>
           </ScrollReveal>
 

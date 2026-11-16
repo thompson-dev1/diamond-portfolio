@@ -12,7 +12,7 @@ import { useState, useEffect } from "react";
 import { site } from "@/lib/site";
 
 const links = [
-  { href: "#about", label: "Biography" },
+  { href: "#about", label: "About" },
   { href: "#technology", label: "Technology" },
   { href: "#work", label: "Modeling & Beauty" },
   { href: "#campaigns", label: "Campaigns" },
