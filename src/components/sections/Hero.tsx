@@ -168,7 +168,7 @@ export function Hero() {
           variants={cinema}
           initial={initialReveal}
           animate="visible"
-          className="hero-links mt-6 flex w-full flex-wrap justify-center gap-2 md:mt-9 md:gap-4"
+          className="hero-links mt-9 flex w-full flex-wrap justify-center gap-2.5 sm:mt-11 md:mt-14 md:gap-4"
         >
           <Link
             href="#work"
@@ -183,7 +183,7 @@ export function Hero() {
             href="#technology"
             className="inline-flex min-h-11 items-center justify-center rounded-sm border border-luxe-gold/40 bg-black/35 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-luxe-white transition-colors duration-500 hover:border-luxe-gold hover:bg-luxe-gold/15 sm:px-4 md:px-7 md:py-4 md:text-[11px]"
           >
-            Technology
+            Education &amp; Technology
           </Link>
         </m.div>
 
