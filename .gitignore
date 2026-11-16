@@ -42,6 +42,3 @@ next-env.d.ts
 
 # Local assets
 images 2/
-
-# Lock file — regenerated on each platform's Node/npm version
-package-lock.json

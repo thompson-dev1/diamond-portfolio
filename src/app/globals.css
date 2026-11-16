@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 :root {
+  --font-cormorant: "Cormorant Garamond", Georgia, serif;
+  --font-manrope: "Manrope", system-ui, sans-serif;
+  --font-playfair: "Playfair Display", Georgia, serif;
   --luxe-bg: #070707;
   --luxe-bg-elevated: #0a0a0a;
   --luxe-surface: #101010;
