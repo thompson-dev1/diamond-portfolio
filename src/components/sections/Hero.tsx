@@ -60,7 +60,7 @@ export function Hero() {
       </div>
 
       {/* Main content */}
-      <div className="hero-content relative z-[11] mx-auto flex min-h-[100svh] max-w-[1200px] flex-col items-center justify-center px-5 pb-20 pt-24 text-center sm:px-6 md:px-12 md:pb-24 md:pt-28">
+      <div className="hero-content relative z-[11] mx-auto flex min-h-[100dvh] max-w-[1200px] flex-col items-center justify-center px-5 pb-20 pt-24 text-center sm:px-6 md:px-12 md:pb-24 md:pt-28">
         {/* Location */}
         <m.div
           custom={0}

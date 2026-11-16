@@ -26,10 +26,10 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g2",
     src: photos.goldAccentsPortrait,
-    images: [photos.goldAccentsPortrait],
+    images: [photos.goldAccentsPortrait, photos.ivoryOneShoulder, photos.yellowGownHallway],
     alt: "Golden Glow",
     caption:
-      "Gold earrings and stacked bangles frame my face in this warm studio close-up. I rest my elbows on a white plinth and bring my hands up to my cheeks, creating a frame around my makeup and expression. The spotlight catches the gold details and gives the portrait its warmth.",
+      "Gold earrings and stacked bangles frame my face in the warm studio close-up. The ivory and soft-yellow gowns carry that golden palette into wider portraits, where the drape and posture take more of the frame. Warm light connects the beauty close-up with the two evening looks.",
     category: "Beauty",
     aspect: "wide",
   },
@@ -46,11 +46,11 @@ export const galleryItems: GalleryItem[] = [
   {
     id: "g4",
     src: photos.redDressStudio,
-    images: [photos.redDressStudio],
+    images: [photos.redDressStudio, photos.warmInteriorPortrait, photos.blackDressStanding],
     alt: "Crimson Silhouette",
     category: "Runway",
     caption:
-      "A fitted red evening gown is the focus of this studio portrait. I turn my shoulders and lift my gaze so the warm spotlight catches the neckline and the shape of the fabric. The plain studio backdrop draws attention to the gown’s bold colour and clean silhouette.",
+      "A fitted red evening gown opens this series under a warm spotlight. The magenta corset and black dress bring in two other silhouettes, with a relaxed crouch in one portrait and an upright pose in the other. The change in pose brings out the structure of each look.",
     aspect: "square",
   },
   {

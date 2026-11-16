@@ -60,6 +60,40 @@ body {
   main .hero-scroll-hint {
     display: none;
   }
+
+  #campaigns[data-pinned="true"] {
+    padding-top: clamp(4.5rem, 8vw, 5.5rem);
+    padding-bottom: 1rem;
+  }
+
+  #campaigns[data-pinned="true"] .campaign-heading {
+    margin-bottom: 0.875rem;
+  }
+
+  #campaigns[data-pinned="true"] .campaign-heading h2 {
+    font-size: 2rem;
+    line-height: 1.12;
+  }
+
+  #campaigns[data-pinned="true"] .campaign-heading p {
+    margin-top: 0.5rem;
+  }
+
+  #campaigns[data-pinned="true"] .campaign-heading .editorial-rule {
+    display: none;
+  }
+
+  #campaigns[data-pinned="true"] .campaign-card {
+    width: min(82vw, 32rem, max(11rem, calc((100dvh - 13rem) * 1.7778)));
+  }
+
+  #campaigns[data-pinned="true"] .campaign-frame {
+    aspect-ratio: 16 / 9;
+  }
+
+  #campaigns[data-pinned="true"] .campaign-hint {
+    margin-top: 0.625rem;
+  }
 }
 
 /* Cinematic film grain — above background layers, below UI (see layout z-index wrapper) */

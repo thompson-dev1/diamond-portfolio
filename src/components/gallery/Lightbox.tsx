@@ -2,11 +2,13 @@
 
 import { AnimatePresence, m } from "framer-motion";
 import Image from "next/image";
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useEffect, useCallback, useRef, type Dispatch, type SetStateAction } from "react";
 import type { GalleryItem } from "@/lib/gallery";
 
 interface LightboxProps {
   item: GalleryItem | null;
+  currentIndex: number;
+  setCurrentIndex: Dispatch<SetStateAction<number>>;
   onClose: () => void;
 }
 
@@ -51,23 +53,18 @@ const swipePower = (offset: number, velocity: number) => {
   return Math.abs(offset) * velocity;
 };
 
-export function Lightbox({ item, onClose }: LightboxProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+export function Lightbox({ item, currentIndex, setCurrentIndex, onClose }: LightboxProps) {
   const closeButton = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    if (item) setCurrentIndex(0);
-  }, [item]);
 
   const handleNext = useCallback(() => {
     if (!item?.images) return;
     setCurrentIndex((prev) => (prev + 1) % item.images.length);
-  }, [item]);
+  }, [item, setCurrentIndex]);
 
   const handlePrev = useCallback(() => {
     if (!item?.images) return;
     setCurrentIndex((prev) => (prev - 1 + item.images.length) % item.images.length);
-  }, [item]);
+  }, [item, setCurrentIndex]);
 
   useEffect(() => {
     if (!item) return;

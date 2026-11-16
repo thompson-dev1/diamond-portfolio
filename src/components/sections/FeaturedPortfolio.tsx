@@ -1,6 +1,6 @@
 "use client";
 
-import { m, useInView, useScroll, useTransform, useSpring, AnimatePresence } from "framer-motion";
+import { m, useInView, useReducedMotion, useScroll, useTransform, useSpring } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -50,25 +50,37 @@ const headingReveal = {
 function MasonryItem({
   item,
   index,
+  coverOffset,
+  autoplay,
   onOpen,
 }: {
   item: GalleryItem;
   index: number;
-  onOpen: (id: string) => void;
+  coverOffset: number;
+  autoplay: boolean;
+  onOpen: (id: string, index: number) => void;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
+  const visible = useInView(cardRef, { amount: 0.25 });
+  const [photoOffset, setPhotoOffset] = useState(0);
+  const imageCount = item.images.length;
+  const currentIndex = (coverOffset + photoOffset) % imageCount;
 
   const handleNext = useCallback(() => {
-    if (!item.images || item.images.length <= 1) return;
-    setCurrentIndex((prev) => (prev + 1) % item.images.length);
-  }, [item]);
+    setPhotoOffset((offset) => (offset + 1) % imageCount);
+  }, [imageCount]);
 
   const handlePrev = useCallback(() => {
-    if (!item.images || item.images.length <= 1) return;
-    setCurrentIndex((prev) => (prev - 1 + item.images.length) % item.images.length);
-  }, [item]);
+    setPhotoOffset((offset) => (offset - 1 + imageCount) % imageCount);
+  }, [imageCount]);
+
+  useEffect(() => {
+    if (!autoplay || !visible || imageCount <= 1) return;
+
+    const timer = window.setTimeout(handleNext, 4000 + (index % 3) * 450);
+    return () => window.clearTimeout(timer);
+  }, [autoplay, visible, imageCount, index, handleNext, currentIndex]);
 
   /* Per-card parallax on scroll */
   const { scrollYProgress } = useScroll({
@@ -167,17 +179,17 @@ function MasonryItem({
         <div className="relative w-full overflow-hidden aspect-[4/5] bg-luxe-bg">
           {/* Parallax image movement */}
           <m.div className="absolute inset-x-0 -inset-y-[6%]" style={{ y: smoothImgY }}>
-            <AnimatePresence mode="popLayout">
+            {item.images.map((src, i) => (
               <m.div
-                key={currentIndex}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.35 }}
+                key={src}
+                aria-hidden={i !== currentIndex}
+                initial={false}
+                animate={{ opacity: i === currentIndex ? 1 : 0 }}
+                transition={{ duration: 0.45 }}
                 className="absolute inset-0 h-full w-full"
               >
                 <Image
-                  src={item.images ? item.images[currentIndex] : item.src}
+                  src={src}
                   alt={item.alt}
                   fill
                   sizes="(min-width: 1536px) 455px, (min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
@@ -185,13 +197,13 @@ function MasonryItem({
                   loading="lazy"
                 />
               </m.div>
-            </AnimatePresence>
+            ))}
           </m.div>
         </div>
         <button
           type="button"
           aria-label={`Open ${item.alt} photos`}
-          onClick={() => onOpen(item.id)}
+          onClick={() => onOpen(item.id, currentIndex)}
           className="absolute inset-0 z-20 cursor-zoom-in rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:-outline-offset-4 focus-visible:outline-luxe-gold"
         />
       </div>
@@ -219,9 +231,36 @@ function MasonryItem({
 export function FeaturedPortfolio() {
   const [filter, setFilter] = useState<GalleryCategory | "All">("All");
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [coverOffset, setCoverOffset] = useState(0);
+  const [playing, setPlaying] = useState(true);
+  const reduceMotion = useReducedMotion();
+  const coverInitialized = useRef(false);
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
   const headingInView = useInView(headingRef, { once: true, margin: "-15%" });
+
+  useEffect(() => {
+    if (coverInitialized.current) return;
+    coverInitialized.current = true;
+
+    const key = "salamatu.gallery.cover-offset";
+    try {
+      const previous = Number(window.localStorage.getItem(key) ?? "-1");
+      const next = Number.isSafeInteger(previous + 1) && previous >= 0 ? previous + 1 : 0;
+      window.localStorage.setItem(key, String(next));
+      setCoverOffset(next);
+    } catch {
+      setCoverOffset(Math.floor(Math.random() * 24));
+    }
+  }, []);
+
+  const openItem = useCallback((id: string, index: number) => {
+    setActiveIndex(index);
+    setActiveId(id);
+  }, []);
+
+  const closeItem = useCallback(() => setActiveId(null), []);
 
   const filtered = useMemo(
     () =>
@@ -317,6 +356,15 @@ export function FeaturedPortfolio() {
                 {c}
               </button>
             ))}
+            {!reduceMotion && (
+              <button
+                type="button"
+                onClick={() => setPlaying((value) => !value)}
+                className="min-h-11 rounded-sm border border-luxe-gold/30 px-3 py-2 text-xs text-luxe-gold transition-colors hover:border-luxe-gold focus-visible:outline focus-visible:outline-luxe-gold sm:px-4"
+              >
+                {playing ? "Pause photos" : "Play photos"}
+              </button>
+            )}
           </m.div>
         </div>
 
@@ -327,7 +375,9 @@ export function FeaturedPortfolio() {
               key={item.id}
               item={item}
               index={i}
-              onOpen={setActiveId}
+              coverOffset={coverOffset}
+              autoplay={playing && !reduceMotion && !activeId}
+              onOpen={openItem}
             />
           ))}
         </div>
@@ -335,7 +385,9 @@ export function FeaturedPortfolio() {
 
       <Lightbox
         item={activeItem}
-        onClose={() => setActiveId(null)}
+        currentIndex={activeIndex}
+        setCurrentIndex={setActiveIndex}
+        onClose={closeItem}
       />
     </section>
   );
