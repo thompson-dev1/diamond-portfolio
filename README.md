@@ -30,3 +30,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to view th
 ```bash
 npm run build
 ```
+
+## Socials & Contact
+
+- **Model & Developer:** Salamatu Adamu
+- **Instagram:** [@salma851509](https://instagram.com/salma851509)
+- **TikTok:** [@cute_sala1](https://www.tiktok.com/@cute_sala1)
+- **Snapchat:** [@Pretty_sala12](https://snapchat.com/add/Pretty_sala12)
+
